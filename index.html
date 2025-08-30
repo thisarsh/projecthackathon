@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAI Talent Assessment Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏅</text></svg>">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="nav-icon">🏅</span>
+                    <span class="nav-title">SAI Talent Assessment</span>
+                </div>
+                <div class="nav-menu">
+                    <button class="nav-item active" data-page="dashboard">Dashboard</button>
+                    <button class="nav-item" data-page="assessment">Assessment</button>
+                    <button class="nav-item" data-page="officials">Officials</button>
+                    <button class="nav-item" data-page="leaderboard">Leaderboard</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <div class="hero-section">
+                    <h1 class="hero-title">🏅 Sports Authority of India</h1>
+                    <p class="hero-subtitle">AI-Powered Athletic Talent Assessment Platform</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-athletes">0</div>
+                        <div class="stat-label">Total Athletes</div>
+                        <div class="stat-delta positive">+5</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-assessments">0</div>
+                        <div class="stat-label">Assessments Completed</div>
+                        <div class="stat-delta positive">+12</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="avg-score">0.0</div>
+                        <div class="stat-label">Average Performance Score</div>
+                        <div class="stat-delta positive">+2.3</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Active Tests</div>
+                        <div class="stat-delta neutral">0</div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-main">
+                        <section class="features-section">
+                            <h2>🎯 Platform Features</h2>
+                            
+                            <div class="feature-groups">
+                                <div class="feature-group">
+                                    <h3>For Athletes:</h3>
+                                    <ul class="feature-list">
+                                        <li>📱 Mobile-first video recording interface</li>
+                                        <li>🤖 AI-powered performance analysis</li>
+                                        <li>📈 Real-time feedback and scoring</li>
+                                        <li>🏆 Gamified progress tracking</li>
+                                        <li>📊 Performance benchmarking</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-group">
+                                    <h3>For Officials:</h3>
+                                    <ul class="feature-list">
+                                        <li>🔍 Advanced assessment review</li>
+                                        <li>📋 Athlete profiling and comparison</li>
+                                        <li>🛡️ Automated cheat detection</li>
+                                        <li>📈 Performance analytics dashboard</li>
+                                        <li>📑 Detailed reporting system</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tests-section">
+                            <h2>🏃‍♂️ Available Fitness Tests</h2>
+                            <div class="table-container">
+                                <table class="tests-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Test Name</th>
+                                            <th>Category</th>
+                                            <th>Duration</th>
+                                            <th>Equipment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Vertical Jump</td>
+                                            <td><span class="category-badge power">Power</span></td>
+                                            <td>5 seconds</td>
+                                            <td>Smartphone</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sit-ups (1 min)</td>
+                                            <td><span class="category-badge core">Core Strength</span></td>
+                                            <td>60 seconds</td>
+                                            <td>Smartphone + Mat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>50m Sprint</td>
+                                            <td><span class="category-badge speed">Speed</span></td>
+                                            <td>10 seconds</td>
+                                            <td>Smartphone + Track</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Push-ups</td>
+                                            <td><span class="category-badge upper">Upper Body</span></td>
+                                            <td>60 seconds</td>
+                                            <td>Smartphone + Mat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Flexibility Test</td>
+                                            <td><span class="category-badge mobility">Mobility</span></td>
+                                            <td>30 seconds</td>
+                                            <td>Smartphone</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="content-sidebar">
+                        <div class="how-it-works">
+                            <h3>📱 How It Works</h3>
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <strong>📹 Record Performance</strong>
+                                        <p>Upload video of your fitness test</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <strong>🤖 AI Analysis</strong>
+                                        <p>Our algorithms analyze your movement</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <strong>📊 Get Scored</strong>
+                                        <p>Receive instant performance metrics</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <strong>🏆 Track Progress</strong>
+                                        <p>Monitor improvement over time</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <strong>🎯 Get Selected</strong>
+                                        <p>Top performers get SAI attention</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tip-box">
+                                💡 <strong>Tip:</strong> Ensure good lighting and clear camera angle for best results!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <section class="analytics-section">
+                    <h2>📊 Platform Analytics</h2>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="footer-content">
+                        <p>🇮🇳 <strong>Sports Authority of India</strong> | Democratizing Athletic Talent Discovery</p>
+                        <p><em>Powered by AI • Built for India • Designed for Excellence</em></p>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Assessment Page -->
+            <div id="assessment-page" class="page">
+                <div class="page-header">
+                    <h1>🏃‍♂️ Athlete Assessment Portal</h1>
+                    <p>Record your fitness test videos and get instant AI-powered analysis</p>
+                </div>
+
+                <div class="assessment-container">
+                    <div class="athlete-form">
+                        <h3>👤 Athlete Information</h3>
+                        <form id="athlete-form">
+                            <div class="form-group">
+                                <label for="athlete-name">Full Name</label>
+                                <input type="text" id="athlete-name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="athlete-age">Age</label>
+                                    <input type="number" id="athlete-age" min="10" max="35" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="athlete-gender">Gender</label>
+                                    <select id="athlete-gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="athlete-sport">Primary Sport</label>
+                                <select id="athlete-sport" required>
+                                    <option value="">Select Sport</option>
+                                    <option value="Athletics">Athletics</option>
+                                    <option value="Football">Football</option>
+                                    <option value="Cricket">Cricket</option>
+                                    <option value="Basketball">Basketball</option>
+                                    <option value="Swimming">Swimming</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="test-selection">
+                        <h3>🏋️‍♂️ Select Fitness Test</h3>
+                        <div class="test-grid">
+                            <div class="test-card" data-test="vertical_jump">
+                                <div class="test-icon">🦘</div>
+                                <h4>Vertical Jump</h4>
+                                <p>Measures explosive leg power</p>
+                                <span class="test-duration">5 seconds</span>
+                            </div>
+                            <div class="test-card" data-test="situps">
+                                <div class="test-icon">💪</div>
+                                <h4>Sit-ups</h4>
+                                <p>Core strength endurance</p>
+                                <span class="test-duration">60 seconds</span>
+                            </div>
+                            <div class="test-card" data-test="sprint">
+                                <div class="test-icon">🏃</div>
+                                <h4>50m Sprint</h4>
+                                <p>Speed and acceleration</p>
+                                <span class="test-duration">10 seconds</span>
+                            </div>
+                            <div class="test-card" data-test="pushups">
+                                <div class="test-icon">🤲</div>
+                                <h4>Push-ups</h4>
+                                <p>Upper body strength</p>
+                                <span class="test-duration">60 seconds</span>
+                            </div>
+                            <div class="test-card" data-test="flexibility">
+                                <div class="test-icon">🧘</div>
+                                <h4>Flexibility</h4>
+                                <p>Range of motion</p>
+                                <span class="test-duration">30 seconds</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-upload" id="video-upload" style="display: none;">
+                        <h3>📹 Record Your Performance</h3>
+                        <div class="upload-area">
+                            <input type="file" id="video-file" accept="video/*" style="display: none;">
+                            <div class="upload-placeholder" id="upload-placeholder">
+                                <div class="upload-icon">📹</div>
+                                <p>Click to upload video or drag and drop</p>
+                                <small>Supported formats: MP4, MOV, AVI (Max 100MB)</small>
+                            </div>
+                            <video id="video-preview" controls style="display: none;"></video>
+                        </div>
+                        <button id="analyze-btn" class="analyze-btn" disabled>🤖 Analyze Performance</button>
+                    </div>
+
+                    <div class="results-section" id="results-section" style="display: none;">
+                        <h3>📊 Assessment Results</h3>
+                        <div class="results-grid" id="results-grid">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Officials Page -->
+            <div id="officials-page" class="page">
+                <div class="page-header">
+                    <h1>👨‍💼 Officials Dashboard</h1>
+                    <p>Manage athletes and review assessments</p>
+                </div>
+
+                <div class="auth-section" id="auth-section">
+                    <div class="auth-card">
+                        <h3>🔐 Official Login</h3>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" placeholder="sai_official">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" placeholder="demo123">
+                            </div>
+                            <button type="submit" class="login-btn">Login</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="officials-content" id="officials-content" style="display: none;">
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" data-tab="athletes">Athletes</button>
+                        <button class="tab-btn" data-tab="assessments">Assessments</button>
+                        <button class="tab-btn" data-tab="analytics">Analytics</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="athletes-tab" class="tab-pane active">
+                            <h3>👥 Registered Athletes</h3>
+                            <div class="table-container">
+                                <table class="data-table" id="athletes-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>Sport</th>
+                                            <th>Registration Date</th>
+                                            <th>Assessments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="athletes-tbody">
+                                        <!-- Data will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="assessments-tab" class="tab-pane">
+                            <h3>📋 Recent Assessments</h3>
+                            <div class="table-container">
+                                <table class="data-table" id="assessments-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Athlete</th>
+                                            <th>Test Type</th>
+                                            <th>Score</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="assessments-tbody">
+                                        <!-- Data will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="analytics-tab" class="tab-pane">
+                            <h3>📈 Performance Analytics</h3>
+                            <div class="analytics-grid">
+                                <div class="chart-card">
+                                    <h4>Score Distribution</h4>
+                                    <canvas id="scoreDistributionChart"></canvas>
+                                </div>
+                                <div class="chart-card">
+                                    <h4>Test Performance by Category</h4>
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Page -->
+            <div id="leaderboard-page" class="page">
+                <div class="page-header">
+                    <h1>🌟 Public Leaderboard</h1>
+                    <p>Top performing athletes across all categories</p>
+                </div>
+
+                <div class="leaderboard-filters">
+                    <select id="sport-filter">
+                        <option value="">All Sports</option>
+                        <option value="Athletics">Athletics</option>
+                        <option value="Football">Football</option>
+                        <option value="Cricket">Cricket</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Swimming">Swimming</option>
+                    </select>
+                    <select id="test-filter">
+                        <option value="">All Tests</option>
+                        <option value="vertical_jump">Vertical Jump</option>
+                        <option value="situps">Sit-ups</option>
+                        <option value="sprint">50m Sprint</option>
+                        <option value="pushups">Push-ups</option>
+                        <option value="flexibility">Flexibility</option>
+                    </select>
+                </div>
+
+                <div class="leaderboard-container">
+                    <div class="leaderboard-table">
+                        <div class="leaderboard-header">
+                            <div class="rank-col">Rank</div>
+                            <div class="athlete-col">Athlete</div>
+                            <div class="score-col">Best Score</div>
+                            <div class="test-col">Test</div>
+                            <div class="date-col">Date</div>
+                        </div>
+                        <div class="leaderboard-body" id="leaderboard-body">
+                            <!-- Leaderboard entries will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
